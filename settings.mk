@@ -3,19 +3,22 @@ ifndef SETTINGS_MK
 
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::TARGET::
 
-NAME	=	ft_printf
+NAME	=	libftprintf.a
 
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::SOURCE::
 
 SRC		=	$Sft_numbers.c \
 			$Sft_printf.c \
-			$Sft_strings.c \
-			$Smain.c
+			$Sft_strings.c 
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::COMPILERS::
 
 CC		=	clang
 
 CFLAGS	=	-Wall -Wextra -Werror
+
+AR		=	ar
+
+ARFLAGS	=	rcs
 
 endif

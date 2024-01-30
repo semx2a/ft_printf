@@ -6,7 +6,7 @@
 #    By: seozcan <seozcan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 19:14:12 by seozcan           #+#    #+#              #
-#    Updated: 2024/01/29 18:43:48 by seozcan          ###   ########.fr        #
+#    Updated: 2024/01/30 12:52:35 by seozcan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ DEP		=	$(SRC:$S%=$D%.d)
 
 # :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::RULES::
 
-all: header message $(NAME)
+all: h2 message $(NAME)
 
 $O:
 	@mkdir -p $@
@@ -63,7 +63,7 @@ $(DEP): $D%.d: $S%
 
 
 $(NAME): $(OBJ)
-	@$(CC) $(CFLAGS) $^ -o $@
+	@$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 	@echo "$(HIGREEN)compiling $(NAME):[OK]$(NO_COLOR)" | $(SPACE)
 
 cleanobj:
@@ -75,13 +75,13 @@ cleandep:
 	@$(RM) $(D)
 	@echo "$(HIORANGE)removing $D folder:[RM]$(NO_COLOR)" | $(SPACE)
 
-clean: cleanobj cleandep
+clean: h2 cleanobj cleandep
 
-fclean: header clean
+fclean: h2 clean
 	@$(RM) $(NAME)
 	@echo "$(HIORANGE)removing $(NAME):[RM]$(NO_COLOR)" | $(SPACE)
 
-re:	header fclean all
+re:	h2 fclean all
 
 include colors.mk output.mk header.mk
 

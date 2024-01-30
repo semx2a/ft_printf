@@ -6,7 +6,7 @@
 /*   By: seozcan <seozcan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 19:59:05 by seozcan           #+#    #+#             */
-/*   Updated: 2021/12/13 20:01:14 by seozcan          ###   ########.fr       */
+/*   Updated: 2024/01/30 13:30:27 by seozcan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	ft_putnbr(int nb)
 	n = nb;
 	if (n < 0)
 	{
-		ret += ft_putchar('-');
+		ret += ft_putchar_printf('-');
 		n *= -1;
 	}
 	if (n < 10)
-		ret += ft_putchar(n + '0');
+		ret += ft_putchar_printf(n + '0');
 	else
 	{
 		ret += ft_putnbr(n / 10);
@@ -40,10 +40,10 @@ int	ft_putnbr_base(unsigned long long int nb, char *base)
 	unsigned long long int	baselen;
 
 	ret = 0;
-	baselen = ft_strlen(base);
+	baselen = ft_strlen_printf(base);
 	if (nb >= baselen)
 		ret += ft_putnbr_base(nb / baselen, base);
-	ret += ft_putchar(base[nb % baselen]);
+	ret += ft_putchar_printf(base[nb % baselen]);
 	return (ret);
 }
 
@@ -52,7 +52,7 @@ int	ft_print_memory(unsigned long long int nb)
 	int	ret;
 
 	ret = 0;
-	ret += ft_putstr("0x");
+	ret += ft_putstr_printf("0x");
 	ret += ft_putnbr_base(nb, "0123456789abcdef");
 	return (ret);
 }
